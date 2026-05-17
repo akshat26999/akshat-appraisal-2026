@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Akshat Joshi — Season 2025/26 Performance Review</title>
+  <meta name="description" content="Performance review — Season 2025/26. Feature delivery, quality, growth and AI adoption."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/styles/base.css"/>
+  <link rel="stylesheet" href="assets/styles/card.css"/>
+  <style>
+    body{background:var(--ink)}
+    .hero{
+      min-height:100vh;
+      display:flex;flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:60px 20px;
+      background:linear-gradient(160deg,#0d1b3e 0%,#1a0026 55%,#0a1a0c 100%);
+      position:relative;overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse at 20% 20%,rgba(0,77,152,.35),transparent 55%),
+                 radial-gradient(ellipse at 80% 80%,rgba(165,0,68,.25),transparent 55%),
+                 radial-gradient(ellipse at 50% 50%,rgba(255,203,5,.07),transparent 60%);
+      pointer-events:none;
+    }
+    .season-badge{
+      font-family:var(--serif);font-weight:900;font-size:.82rem;letter-spacing:.35em;text-transform:uppercase;
+      color:var(--gold);border:1px solid rgba(255,203,5,.4);padding:8px 18px;border-radius:2px;
+      margin-bottom:28px;
+    }
+    .hero-sub{
+      text-align:center;color:rgba(255,255,255,.6);font-size:.92rem;
+      max-width:500px;margin:24px auto 0;line-height:1.55;
+    }
+    .hero-sub strong{color:var(--gold)}
+    .scroll-cue{
+      position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+      font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35);
+      animation:float 2.4s ease-in-out infinite;
+    }
+    @keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)}}
+    .section-header{
+      text-align:center;margin-bottom:44px;
+    }
+    .section-header p{color:rgba(255,255,255,.55);max-width:500px;margin:10px auto 0;font-size:.95rem}
+    /* Navigation links in topbar */
+    nav.index-topbar{
+      position:fixed;top:0;left:0;right:0;z-index:9999;
+      background:rgba(10,10,20,.88);
+      -webkit-backdrop-filter:blur(12px);
+      backdrop-filter:blur(12px);
+      border-bottom:2px solid rgba(255,203,5,.3);
+      padding:10px 0;
+      pointer-events:all;
+    }
+    nav.index-topbar .container{display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap}
+    nav.index-topbar a, nav.index-topbar .topnav a{
+      touch-action:manipulation;
+      -webkit-tap-highlight-color:rgba(255,203,5,.2);
+      cursor:pointer;
+    }
+    .report-section{
+      background:linear-gradient(160deg,#0d1b3e 0%,#1a0026 55%,#0a1a0c 100%);
+      padding:70px 0 80px;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="index-topbar" aria-label="Site navigation">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/img/fcb-crest.png" alt="Crest"/>
+        <span class="name">Akshat <span>Joshi</span></span>
+      </a>
+      <div class="topnav">
+        <a href="index.html" aria-current="page">Cover</a>
+        <a href="feature-delivery.html">La Liga</a>
+        <a href="quality-ux.html">Copa del Rey</a>
+        <a href="growth-ai.html">Champions League</a>
+        <a href="trophy-room.html">Trophy Room</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero" aria-label="Player card cover">
+      <div class="season-badge">Season 2025 · 26 &nbsp;·&nbsp; Performance Review</div>
+
+      <div class="fut-scene">
+        <div class="fut-card" role="img" aria-label="Akshat Joshi FUT card — CAM S.DEV">
+          <div class="fut-face">
+
+            <div class="fut-top">
+              <div class="fut-top-left">
+                <div class="fut-rating">
+                  <span>CAM</span>
+                  <span class="pos">S.DEV</span>
+                </div>
+                <div class="fut-nation">
+                  <svg width="26" height="18" viewBox="0 0 32 22" role="img" aria-label="India">
+                    <rect width="32" height="7.3" fill="#FF9933"/>
+                    <rect y="7.3" width="32" height="7.4" fill="#fff"/>
+                    <rect y="14.7" width="32" height="7.3" fill="#138808"/>
+                    <circle cx="16" cy="11" r="2.8" fill="none" stroke="#000080" stroke-width=".8"/>
+                  </svg>
+                </div>
+                <div class="fut-comp-badge">AMBAK</div>
+              </div>
+              <div class="fut-crest">
+                <!-- CREST: replace assets/img/fcb-crest.png with any PNG -->
+                <img src="assets/img/fcb-crest.png" alt="Club crest"/>
+              </div>
+            </div>
+
+            <!-- PHOTO: replace assets/img/akshat-placeholder.svg with your photo (jpg/png) -->
+            <div class="fut-photo-wrap">
+              <img src="assets/img/akshat-placeholder.svg" alt="Akshat Joshi" id="player-photo"/>
+            </div>
+
+            <div class="fut-name">Akshat Joshi</div>
+            <div class="fut-stats-divider"></div>
+
+            <div class="fut-stats" role="group" aria-label="Season stats">
+              <div class="fut-stat" tabindex="0">
+                <span class="sv">40</span><span class="sk">TKT</span>
+                <span class="fut-stat-tip" role="tooltip"><strong>40 Tickets</strong><br/>JIRA tickets delivered across the 2025/26 season — features, bugs, and platform work.</span>
+              </div>
+              <div class="fut-stat" tabindex="0">
+                <span class="sv">93</span><span class="sk">PRS</span>
+                <span class="fut-stat-tip" role="tooltip"><strong>93 PRs Merged</strong><br/>Pull requests authored and merged — feature delivery, refactors, and fixes.</span>
+              </div>
+              <div class="fut-stat" tabindex="0">
+                <span class="sv">65</span><span class="sk">WIN</span>
+                <span class="fut-stat-tip" role="tooltip"><strong>65% Win Rate</strong><br/>26 of 40 fixtures won. Sprint commitment hit across La Liga, Copa, and UCL.</span>
+              </div>
+              <div class="fut-stat" tabindex="0">
+                <span class="sv">7</span><span class="sk">TRO</span>
+                <span class="fut-stat-tip" role="tooltip"><strong>7 Trophies</strong><br/>Delivery initiatives that shipped and moved the needle — Copa del Rey cabinet.</span>
+              </div>
+              <div class="fut-stat" tabindex="0">
+                <span class="sv">5</span><span class="sk">REP</span>
+                <span class="fut-stat-tip" role="tooltip"><strong>5 Repositories</strong><br/>Distinct repos contributed to this half — cross-codebase footprint.</span>
+              </div>
+              <div class="fut-stat" tabindex="0">
+                <span class="sv">11</span><span class="sk">AI%</span>
+                <span class="fut-stat-tip" role="tooltip"><strong>11% AI Adoption</strong><br/>10 of 93 PRs after adopting Claude (Apr 15, 2026). Joined late — building momentum.</span>
+              </div>
+            </div>
+
+            <div class="fut-bottom">
+              <div class="fut-bottom-flag">
+                <svg width="24" height="16" viewBox="0 0 32 22" role="img" aria-label="India">
+                  <rect width="32" height="7.3" fill="#FF9933"/>
+                  <rect y="7.3" width="32" height="7.4" fill="#fff"/>
+                  <rect y="14.7" width="32" height="7.3" fill="#138808"/>
+                  <circle cx="16" cy="11" r="2.8" fill="none" stroke="#000080" stroke-width=".8"/>
+                </svg>
+              </div>
+              <div class="fut-bottom-badge">Tech · 2025/26</div>
+              <div class="fut-bottom-crest">
+                <img src="assets/img/fcb-crest.png" alt="Crest"/>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <p class="hero-sub">
+        <strong>Season 2025/26 Performance Review</strong><br/>
+        40 fixtures across 3 competitions — La Liga, Copa del Rey, and the Champions League.
+        A full-season campaign, played in Blaugrana.
+      </p>
+
+      <span class="scroll-cue" aria-hidden="true">▼ &nbsp; Explore the reports</span>
+    </section>
+
+    <!-- Match Report Navigation -->
+    <section class="report-section" aria-label="Match reports navigation">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker gold">Three Competitions</span>
+          <h2 style="color:#fff;margin-top:12px">The Season in Full</h2>
+          <p>Feature delivery, quality ownership, and growth — mapped across La Liga, Copa del Rey, and the Champions League.</p>
+        </div>
+
+        <div class="report-cards">
+          <a href="feature-delivery.html" class="report-card liga" aria-label="La Liga — Feature Delivery, 45%">
+            <div class="report-card-weight">45%</div>
+            <div class="report-card-kicker">La Liga Campaign</div>
+            <div class="report-card-title">Feature Delivery</div>
+            <div class="report-card-sub">40 fixtures &nbsp;·&nbsp; 26 wins &nbsp;·&nbsp; 65% win rate. Sprint commitment, PR cycle time, zero unflagged scope slippages.</div>
+            <div class="report-card-arrow">→</div>
+          </a>
+          <a href="quality-ux.html" class="report-card copa" aria-label="Copa del Rey — Quality, UX, Production Ownership, 35%">
+            <div class="report-card-weight">35%</div>
+            <div class="report-card-kicker">Copa del Rey Campaign</div>
+            <div class="report-card-title">Quality &amp; Ownership</div>
+            <div class="report-card-sub">Clean sheets, defensive recoveries, and the XI that keeps production stable. UX, testing, on-call.</div>
+            <div class="report-card-arrow">→</div>
+          </a>
+          <a href="growth-ai.html" class="report-card ucl" aria-label="Champions League — Growth, Code Quality, AI Adoption, 20%">
+            <div class="report-card-weight">20%</div>
+            <div class="report-card-kicker">Champions League</div>
+            <div class="report-card-title">Growth &amp; AI Adoption</div>
+            <div class="report-card-sub">Five European nights. The False 9. La Masia. One Roma '91 — a loss kept as a lesson.</div>
+            <div class="report-card-arrow">→</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pep closer -->
+    <section style="padding:60px 0;background:var(--ink)">
+      <div class="container-narrow">
+        <blockquote class="pep" style="border-color:var(--gold);background:rgba(255,255,255,.04)">
+          <span style="color:rgba(255,255,255,.9)">"Without the ball, you can't win. Without winning the ball back, you can't have the ball."</span>
+          <cite style="color:rgba(255,203,5,.7)">— Pep Guardiola</cite>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <!-- Music toggle (hook — add assets/audio/cover.wav to activate) -->
+  <button class="music-toggle" id="music-toggle" aria-pressed="false" title="Toggle music" aria-label="Toggle background music">
+    ♪
+  </button>
+  <audio id="anthem" src="assets/audio/cover.wav" loop preload="none"></audio>
+
+  <footer class="site-foot" style="margin-top:0">
+    <div class="container">
+      <small>Akshat Joshi &nbsp;·&nbsp; akshat.joshi@ambak.com &nbsp;·&nbsp; Season 2025/26</small>
+      <small style="text-align:right">A performance review,<br/>in Blaugrana. &nbsp;⚽</small>
+    </div>
+  </footer>
+
+  <script src="assets/js/tooltip.js"></script>
+  <script src="assets/js/music.js"></script>
+  <script>
+    // Global stat tooltip — triggers only on the text spans inside each stat cell
+    (function() {
+      var el = document.createElement('div');
+      el.id = 'stat-tooltip';
+      el.style.cssText = 'position:fixed;background:#141414;color:#fff;border:1px solid #FFCB05;border-radius:6px;padding:8px 12px;width:200px;font-size:.74rem;line-height:1.4;text-align:center;pointer-events:none;opacity:0;transition:opacity .15s;z-index:999999;box-shadow:0 8px 24px rgba(0,0,0,.5);font-family:Inter,sans-serif';
+      document.body.appendChild(el);
+
+      function show(tipEl, e) {
+        el.innerHTML = tipEl.innerHTML;
+        el.style.opacity = '1';
+        place(e.clientX, e.clientY);
+      }
+      function hide() { el.style.opacity = '0'; }
+      function place(mx, my) {
+        var tw = 200;
+        var th = el.offsetHeight || 60;
+        var left = mx - tw / 2;
+        var top  = my - th - 16;
+        if (top < 8) top = my + 20;
+        left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
+        el.style.left = left + 'px';
+        el.style.top  = top  + 'px';
+      }
+
+      document.querySelectorAll('.fut-stat').forEach(function(stat) {
+        var tip = stat.querySelector('.fut-stat-tip');
+        if (!tip) return;
+        // attach only to the visible text children, not the whole padded cell
+        stat.querySelectorAll('.sv, .sk').forEach(function(span) {
+          span.addEventListener('mouseenter', function(e) { show(tip, e); });
+          span.addEventListener('mousemove',  function(e) { place(e.clientX, e.clientY); });
+          span.addEventListener('mouseleave', hide);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

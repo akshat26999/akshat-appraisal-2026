@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>La Liga Campaign — Feature Delivery | Akshat Joshi Season 2025/26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/styles/base.css"/>
+  <link rel="stylesheet" href="assets/styles/card.css"/>
+  <link rel="stylesheet" href="assets/styles/match-report.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="topbar" aria-label="Site navigation">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/img/fcb-crest.png" alt="Crest"/>
+        <span class="name">Akshat <span>Joshi</span></span>
+      </a>
+      <div class="topnav">
+        <a href="index.html">Cover</a>
+        <a href="feature-delivery.html" aria-current="page">La Liga</a>
+        <a href="quality-ux.html">Copa del Rey</a>
+        <a href="growth-ai.html">Champions League</a>
+        <a href="trophy-room.html">Trophy Room</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- Match Header -->
+    <header class="match-header" aria-label="Match report header">
+      <div class="container">
+        <div class="match-header-text">
+          <span class="competition">La Liga — Matchday Season Report</span>
+          <h1>Feature Delivery</h1>
+          <p class="rubric">Section 1 of 3 &nbsp;·&nbsp; Weight: <strong>45%</strong></p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+          <div class="match-score">67%<small>Win Rate</small></div>
+          <div class="manager-badge">
+            <!--
+              MANAGER PHOTO SWAP:
+              Replace assets/img/manager-placeholder.svg with the manager's photo.
+              Same filename = no HTML edits.
+            -->
+            <img src="assets/img/manager-placeholder.svg" alt="The Gaffer"/>
+            <div>
+              <div class="title">The Gaffer</div>
+              <div class="mname" id="manager-name">Team Manager</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Season Strip -->
+    <div class="season-strip" aria-label="Season statistics">
+      <div class="container">
+        <div class="hl">
+          <span id="headline-text">Loading season stats…</span>
+        </div>
+        <div id="stat-strip"></div>
+      </div>
+    </div>
+
+    <!-- El Clásico Highlights -->
+    <section class="section" aria-labelledby="highlights-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">El Clásico Nights</span>
+          <h2 id="highlights-heading">Key Fixtures</h2>
+        </div>
+        <p style="max-width:680px;color:var(--ink-soft);margin-bottom:28px">The matches that defined the season. Six signature deliveries that moved the needle — shipped, shipped on three platforms, or currently crossing the line.</p>
+        <div class="highlight-grid" id="highlight-grid">
+          <p style="color:var(--ink-soft);font-style:italic">Loading highlights…</p>
+        </div>
+
+        <div class="divider"><span class="score-6-0">6-2 Bernabéu</span></div>
+
+        <!-- All Fixtures -->
+        <div class="section-head" style="margin-top:0">
+          <span class="kicker blau">Full Season</span>
+          <h2 id="fixtures-heading">Season Fixtures</h2>
+        </div>
+        <p style="max-width:680px;color:var(--ink-soft);margin-bottom:18px">Every ticket from the campaign. Filter by result.</p>
+
+        <div class="tabs" role="tablist" aria-label="Filter fixtures">
+          <button class="tab active" role="tab" data-filter="all" aria-selected="true">All Fixtures</button>
+          <button class="tab" role="tab" data-filter="W" aria-selected="false">⚽ Goals</button>
+          <button class="tab" role="tab" data-filter="PPD" aria-selected="false">❌ Postponed</button>
+          <button class="tab" role="tab" data-filter="in-play" aria-selected="false">🔴 In Play</button>
+        </div>
+
+        <div style="overflow-x:auto">
+          <table class="fixtures-table" id="fixtures-table" aria-label="Fixtures">
+            <thead>
+              <tr>
+                <th>Matchday</th>
+                <th>Fixture</th>
+                <th>KO Date</th>
+                <th>FT Date</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody id="fixtures-body">
+              <tr><td colspan="5" style="padding:20px;color:var(--ink-soft);font-style:italic">Loading fixtures…</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pep divider -->
+        <blockquote class="pep" style="margin-top:40px">
+          "I like to control the game. You have the ball, you pass, you move, you press, you enjoy."
+          <cite>— Pep Guardiola</cite>
+        </blockquote>
+
+        <!-- Bug table -->
+        <div class="section-head" style="margin-top:40px">
+          <span class="kicker grana">Defensive Recoveries</span>
+          <h2>Last-Ditch Tackles</h2>
+        </div>
+        <p style="max-width:680px;color:var(--ink-soft);margin-bottom:18px">Production bugs caught and cleared. No own goals.</p>
+
+        <table class="bug-table" id="bug-table" aria-label="Bug fixes">
+          <thead>
+            <tr>
+              <th>Ref</th>
+              <th>Incident</th>
+              <th>Raised</th>
+              <th>Cleared</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="bug-body">
+            <tr><td colspan="5" style="padding:16px;color:var(--ink-soft)">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <button class="music-toggle" id="music-toggle" aria-pressed="false" title="Toggle music" aria-label="Toggle background music">♪</button>
+  <audio id="anthem" src="assets/audio/la-liga.wav" loop preload="none"></audio>
+
+  <footer class="site-foot">
+    <div class="container">
+      <small>Akshat Joshi &nbsp;·&nbsp; akshat.joshi@ambak.com &nbsp;·&nbsp; Season 2025/26</small>
+      <div style="display:flex;gap:14px">
+        <a href="quality-ux.html" style="color:var(--gold);font-weight:700;font-size:.88rem">Copa del Rey →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/fixtures.js"></script>
+  <script src="assets/js/tooltip.js"></script>
+  <script src="assets/js/music.js"></script>
+</body>
+</html>

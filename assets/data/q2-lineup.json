@@ -1,0 +1,29 @@
+{
+  "_comment": "Barcelona 2014-15 treble XI mapped to Q2 initiatives. 'player' = real name on shirt, 'number' = squad #. Reorder within position arrays to re-rank. 'tickets' link to tickets.json. 'profile' renders in Player Profiles section.",
+  "formation": "4-3-3",
+  "managerReport": [
+    "Football is read before it is played. I stay in touch with Yoddhas in person, watch the WhatsApp bug-report channel, and keep one eye on Sentry and Firebase so production never surprises me.",
+    "I show up to product discussions early to align on scope and UX. I read backend flows for features I own so I can debug across the pitch, not just my half. The XI below is built on that habit."
+  ],
+  "positions": {
+    "GK": [
+      { "role": "GK", "player": "Bravo", "number": 1, "name": "Sentry + Firebase Watch", "blurb": "Last line of defence. Crash dashboards reviewed weekly; runtime health protected.", "profile": "The last line. Eyes never leave the scoreboard — Sentry and Firebase reviewed weekly. The saves you don't see because they never reach the net.", "tickets": [] }
+    ],
+    "DEF": [
+      { "role": "LB", "player": "Jordi Alba", "number": 18, "name": "Gitprint AI Stats", "blurb": "Surfaces AI tool usage across engineering. WIP.", "profile": "Overlapping fullback. Surfaces AI tool usage across engineering — bombs forward to support attack, still earning his stripes on the new system.", "tickets": [] },
+      { "role": "CB", "player": "Mascherano", "number": 14, "name": "CodePush + JIRA Automation", "blurb": "Pipeline closes the dev↔QA handoff gap.", "profile": "The converted CB. Pipeline that closes the dev↔QA handoff gap — relentless, automated, never tires.", "tickets": ["AMB-2869"] },
+      { "role": "CB", "player": "Piqué", "number": 3, "name": "WhatsApp Bug Triage", "blurb": "Monitor the field-report group; convert chatter to issues before users hit production walls.", "profile": "Wins every aerial duel. Watches the WhatsApp field-report channel and clears danger before it reaches the box — chatter into tickets, tickets into fixes.", "tickets": [] },
+      { "role": "RB", "player": "Dani Alves", "number": 22, "name": "In-Person Yoddha Feedback", "blurb": "Walk the field, talk to users, bring back real complaints before they become tickets.", "profile": "Reads the game from the touchline. Walks the field, talks to Yoddhas, brings real complaints back to the dressing room before they become production tickets.", "tickets": [] }
+    ],
+    "MID": [
+      { "role": "CDM", "player": "Busquets", "number": 5, "name": "Edit Lead Revamp", "blurb": "Dynamic form deprecated. New component structure across the edit flow.", "profile": "The deep-lying playmaker. Tore out the old dynamic form and rebuilt the midfield around a cleaner component structure — every pass crisp, every transition smooth.", "tickets": ["AMB-2825"] },
+      { "role": "CM", "player": "Rakitić", "number": 4, "name": "Yoddha Dashboard Optimisation", "blurb": "Reduced app-open to first-API hit. Snappier opening minutes.", "profile": "The metronome. Cut the time from kickoff (app open) to first pass (API hit). Sets the tempo for everything that follows.", "tickets": ["AMB-1933"] },
+      { "role": "CAM", "player": "Iniesta", "number": 8, "name": "Lead Details Revamp", "blurb": "PDD/Transaction upload + checkout form rebuilt without breaking listing or payout ETA.", "profile": "The number 10's number 8. Rebuilt PDD/Transaction upload and the checkout form without breaking the listing or payout ETA — vision and precision in tight spaces.", "tickets": ["AMB-2754", "AMB-2756", "AMB-2732"] }
+    ],
+    "FWD": [
+      { "role": "LW", "player": "Neymar", "number": 11, "name": "Reusable Components Library", "blurb": "Shared components across screens. Less duplication, faster shipping.", "profile": "Wide left, cutting inside. Shared components across screens — fewer touches, faster shipping, dangerous in every attack.", "tickets": [] },
+      { "role": "ST", "player": "Messi", "number": 10, "name": "Chatbot Client (the False 9)", "blurb": "Full chatbot integration on Saathi web + mobile. Drops into any flow.", "profile": "The False 9. Drops between the lines into any flow — Saathi web, Saathi mobile — wherever the play needs to break. Unpredictable by design.", "tickets": ["AMB-2272"] },
+      { "role": "RW", "player": "Suárez", "number": 9, "name": "Pre-commit Image Validation", "blurb": "Hooks block duplicate assets before commit. Internal portal flags lookalikes.", "profile": "Wide right, the press starter. Pre-commit hooks block duplicate assets before they reach the repo; an internal portal flags lookalikes. Never lets an opponent past untouched.", "tickets": [] }
+    ]
+  }
+}

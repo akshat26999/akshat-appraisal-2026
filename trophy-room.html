@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Trophy Room — Season Summary | Akshat Joshi Season 2025/26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/styles/base.css"/>
+  <link rel="stylesheet" href="assets/styles/card.css"/>
+  <link rel="stylesheet" href="assets/styles/match-report.css"/>
+  <style>
+    /* Page-level soft radial accents — no crest tiling */
+    body{
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(0,77,152,.05) 0, transparent 320px),
+        radial-gradient(circle at 88% 70%, rgba(165,0,68,.05) 0, transparent 360px);
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+    }
+
+    /* ============ Trophy hero — blaugrana gradient ============ */
+    .trophy-hero{
+      background:
+        linear-gradient(135deg,#0E2D6B 0%,#004D98 35%,#7a0036 75%,#A50044 100%);
+      min-height:46vh;
+      display:flex;align-items:flex-end;
+      padding:64px 0 48px;
+      border-bottom:5px solid var(--gold);
+      position:relative;overflow:hidden;
+    }
+    /* Top stripe: claret → gold → blaugrana */
+    .trophy-hero::before{
+      content:"";
+      position:absolute;top:0;left:0;right:0;height:5px;
+      background:linear-gradient(90deg,var(--grana) 0%, var(--gold) 50%, var(--blau) 100%);
+      z-index:2;
+    }
+    /* Watermark crest + glow */
+    .trophy-hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        radial-gradient(ellipse at 50% 0%,rgba(255,203,5,.18),transparent 65%),
+        url("assets/img/fcb-crest.png") right -60px center/420px no-repeat;
+      opacity:.85;
+      pointer-events:none;
+    }
+    .trophy-hero .container{position:relative;z-index:3}
+    .trophy-hero h1{
+      font-size:clamp(2.4rem,5.5vw,4.4rem);
+      letter-spacing:-.015em;
+    }
+
+    /* ============ Season Totals — news-tile stat cards ============ */
+    .season-totals{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:18px;
+      margin:44px 0 52px;
+    }
+    .total-tile{
+      background:#fff;
+      color:var(--ink);
+      border-radius:6px;
+      padding:24px 22px 20px;
+      border-top:4px solid var(--blau);
+      text-align:left;
+      position:relative;cursor:default;
+      box-shadow:0 4px 14px rgba(0,0,0,.06);
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .total-tile::before{
+      /* gold accent appears on hover */
+      content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+      background:var(--gold);
+      transform:scaleX(0);transform-origin:left;
+      transition:transform .25s ease;
+    }
+    .total-tile:hover{
+      transform:translateY(-4px);
+      box-shadow:0 14px 36px rgba(0,0,0,.13);
+    }
+    .total-tile:hover::before{transform:scaleX(1)}
+
+    .total-tile .label{
+      display:inline-block;
+      font-family:var(--sans);
+      font-size:.66rem;font-weight:900;letter-spacing:.2em;
+      text-transform:uppercase;color:var(--grana);
+      background:rgba(165,0,68,.08);
+      padding:4px 8px;border-radius:3px;
+      margin-bottom:14px;
+    }
+    .total-tile .big{
+      font-family:var(--serif);font-weight:900;
+      font-size:clamp(2.4rem,4vw,3.2rem);
+      color:var(--blau-deep);line-height:1;
+      display:block;
+      letter-spacing:-.02em;
+    }
+
+    /* Tooltip — preserved */
+    .total-tile[data-desc]::after{
+      content:attr(data-desc);
+      position:absolute;
+      bottom:calc(100% + 10px);
+      left:50%;
+      transform:translateX(-50%);
+      background:var(--ink);color:#fff;
+      border:1px solid var(--gold);border-radius:6px;
+      padding:10px 14px;
+      width:240px;
+      font-family:var(--sans);font-size:.78rem;font-weight:400;
+      line-height:1.5;letter-spacing:.01em;text-align:left;
+      box-shadow:0 8px 28px rgba(0,0,0,.4);
+      pointer-events:none;opacity:0;
+      white-space:normal;
+      z-index:99999;
+      transition:opacity .15s;
+    }
+    .tt-arrow{
+      content:"";
+      position:absolute;
+      bottom:calc(100% + 2px);
+      left:50%;transform:translateX(-50%);
+      border:6px solid transparent;
+      border-top-color:var(--gold);
+      pointer-events:none;opacity:0;
+      transition:opacity .15s;
+      z-index:99999;
+    }
+    .total-tile[data-desc]:hover::after,
+    .total-tile[data-desc]:hover .tt-arrow{opacity:1}
+
+    /* ============ Section divider — clean gradient line + crest ============ */
+    .crest-divider{
+      display:flex;align-items:center;justify-content:center;gap:14px;
+      margin:48px 0 36px;
+      border:0;
+    }
+    .crest-divider .line{
+      flex:1;height:2px;
+      background:linear-gradient(90deg,transparent 0%,var(--blau) 30%,var(--gold) 50%,var(--grana) 70%,transparent 100%);
+    }
+    .crest-divider img{
+      width:24px;height:auto;opacity:.85;
+    }
+
+    /* ============ Three Competitions — news-tile cards ============ */
+    .three-comp-head{
+      display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;
+      margin-bottom:24px;
+    }
+    .three-comp-head .meta{
+      font-family:var(--num);font-size:.72rem;font-weight:700;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--ink-soft);
+    }
+    .comp-card{
+      display:grid;grid-template-columns:auto 1fr;gap:24px;
+      background:#fff;border-radius:8px;padding:24px 26px;
+      border:1px solid rgba(0,0,0,.06);
+      border-left:5px solid var(--blau);
+      box-shadow:0 4px 14px rgba(0,0,0,.06);
+      margin-bottom:18px;
+      align-items:center;
+      position:relative;overflow:hidden;
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .comp-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 16px 38px rgba(0,0,0,.12);
+    }
+    .comp-card.copa{border-left-color:var(--green)}
+    .comp-card.ucl{border-left-color:#6b21a8}
+
+    /* Circular crest badge with gradient bg */
+    .comp-badge{
+      width:84px;height:84px;border-radius:999px;
+      display:grid;place-items:center;
+      font-family:var(--serif);font-weight:900;
+      font-size:1.05rem;letter-spacing:.04em;
+      text-transform:uppercase;text-align:center;color:#fff;line-height:1;
+      box-shadow:0 6px 18px rgba(0,0,0,.18), inset 0 -3px 8px rgba(0,0,0,.18);
+      flex-shrink:0;
+      transition:transform .25s ease;
+      position:relative;
+    }
+    .comp-badge::after{
+      content:"";position:absolute;inset:5px;border-radius:999px;
+      border:1.5px solid rgba(255,255,255,.35);
+      pointer-events:none;
+    }
+    .comp-card:hover .comp-badge{transform:scale(1.07) rotate(-2deg)}
+    .comp-badge.liga{background:linear-gradient(140deg,#0E2D6B 0%,#004D98 60%,#003B7A 100%)}
+    .comp-badge.copa{background:linear-gradient(140deg,#062B19 0%,#0A5C36 60%,#085029 100%)}
+    .comp-badge.ucl{background:linear-gradient(140deg,#3a0a6e 0%,#6b21a8 55%,#4a1581 100%)}
+
+    .comp-card-body{min-width:0}
+    .comp-card-head{
+      display:flex;justify-content:space-between;align-items:baseline;
+      flex-wrap:wrap;gap:8px;margin-bottom:6px;
+    }
+    .comp-card h3{
+      font-family:var(--serif);font-weight:800;
+      font-size:1.25rem;margin:0;color:var(--blau-deep);
+      letter-spacing:-.005em;
+    }
+    .comp-card .weight{
+      font-family:var(--num);font-weight:900;font-size:1.55rem;
+      color:var(--grana);line-height:1;
+    }
+    .comp-card p{
+      font-size:.92rem;color:var(--ink-soft);line-height:1.55;margin:0;
+    }
+    /* Button-style CTA */
+    .comp-card-cta{
+      display:inline-flex;align-items:center;gap:8px;
+      margin-top:14px;
+      font-family:var(--sans);font-weight:800;font-size:.74rem;
+      letter-spacing:.16em;text-transform:uppercase;
+      color:var(--blau);
+      border:1.5px solid var(--blau);
+      padding:7px 14px 6px;border-radius:3px;
+      background:transparent;
+      transition:background .18s,color .18s,gap .18s;
+    }
+    .comp-card.copa .comp-card-cta{color:var(--green);border-color:var(--green)}
+    .comp-card.ucl .comp-card-cta{color:#6b21a8;border-color:#6b21a8}
+    .comp-card-cta:hover{
+      background:var(--blau);color:#fff;gap:12px;
+    }
+    .comp-card.copa .comp-card-cta:hover{background:var(--green);color:#fff}
+    .comp-card.ucl .comp-card-cta:hover{background:#6b21a8;color:#fff}
+    .comp-card-cta .arrow{display:inline-block;transition:transform .18s}
+    .comp-card-cta:hover .arrow{transform:translateX(3px)}
+
+    @media(max-width:560px){
+      .comp-card{grid-template-columns:1fr;gap:14px}
+      .comp-badge{width:64px;height:64px;font-size:.9rem}
+    }
+
+    /* ============ Pep section divider quote ============ */
+    .pep-section-quote{
+      max-width:780px;margin:48px auto 0;
+      font-family:var(--serif);font-style:italic;
+      font-size:clamp(1.05rem,2vw,1.35rem);
+      color:var(--ink);text-align:center;line-height:1.45;
+      padding:32px 24px;
+      border-top:1px solid rgba(0,0,0,.08);
+      border-bottom:1px solid rgba(0,0,0,.08);
+      position:relative;
+    }
+    .pep-section-quote::before,
+    .pep-section-quote::after{
+      content:"";position:absolute;left:50%;transform:translateX(-50%);
+      width:40px;height:3px;background:var(--grana);
+    }
+    .pep-section-quote::before{top:-2px}
+    .pep-section-quote::after{bottom:-2px;background:var(--blau)}
+    .pep-section-quote cite{
+      display:block;margin-top:14px;font-style:normal;
+      font-family:var(--sans);font-weight:800;font-size:.72rem;
+      letter-spacing:.22em;text-transform:uppercase;color:var(--grana);
+    }
+
+    /* ============ Manager closer (pep-hero) ============ */
+    .pep-hero{
+      background:var(--ink);
+      padding:90px 0;
+      text-align:center;
+      border-top:5px solid var(--grana);
+      margin-top:60px;
+      position:relative;overflow:hidden;
+    }
+    /* Bottom stripe mirror — blaugrana → claret */
+    .pep-hero::after{
+      content:"";position:absolute;left:0;right:0;bottom:0;height:5px;
+      background:linear-gradient(90deg,var(--blau) 0%,var(--gold) 50%,var(--grana) 100%);
+    }
+    /* Faded crest watermark behind quote */
+    .pep-hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background:url("assets/img/fcb-crest.png") center/min(420px,55%) no-repeat;
+      opacity:.07;
+      pointer-events:none;
+    }
+    .pep-hero > *{position:relative;z-index:1}
+    .pep-hero .quote-marks{
+      font-family:var(--serif);font-weight:900;font-size:5rem;line-height:.6;
+      color:var(--gold);opacity:.7;display:block;margin-bottom:-12px;
+    }
+    .pep-hero blockquote{
+      max-width:760px;margin:0 auto;
+      font-family:var(--serif);font-style:italic;
+      font-size:clamp(1.5rem,3.2vw,2.4rem);
+      color:#fff;line-height:1.32;
+      border:0;padding:0;background:transparent;
+    }
+    .pep-hero cite{
+      display:block;margin-top:22px;
+      font-style:normal;font-weight:800;font-size:.82rem;
+      letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
+    }
+    .pep-hero .manager-photo{
+      width:88px;height:88px;border-radius:999px;
+      border:3px solid var(--gold);
+      object-fit:cover;
+      margin-bottom:24px;
+      box-shadow:0 8px 22px rgba(0,0,0,.5);
+    }
+
+    @media print{
+      body{background:#fff!important}
+      body::before{display:none}
+      .trophy-hero::after,.pep-hero::before{display:none}
+      .total-tile{break-inside:avoid;border:1px solid #ccc!important}
+      .comp-card{break-inside:avoid;border:1px solid #ccc!important}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="topbar" aria-label="Site navigation">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/img/fcb-crest.png" alt="Crest" width="36" height="36" style="object-fit:contain"/>
+        <span class="name">Akshat <span>Joshi</span></span>
+      </a>
+      <div class="topnav">
+        <a href="index.html">Cover</a>
+        <a href="feature-delivery.html">La Liga</a>
+        <a href="quality-ux.html">Copa del Rey</a>
+        <a href="growth-ai.html">Champions League</a>
+        <a href="trophy-room.html" aria-current="page">Trophy Room</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="trophy-hero" aria-label="Trophy room header">
+      <div class="container">
+        <span class="kicker gold">End of Season</span>
+        <h1 style="color:#fff;margin-top:14px">Trophy Room</h1>
+        <p style="color:rgba(255,255,255,.7);font-size:1.1rem;max-width:600px;margin-top:8px;line-height:1.55">
+          Three competitions. One season. Here is the full picture of what was built, owned, and learned in Season 2025/26.
+        </p>
+      </div>
+    </div>
+
+    <section style="padding:60px 0" aria-labelledby="totals-heading">
+      <div class="container">
+        <span class="kicker">Season Totals</span>
+        <h2 id="totals-heading" style="margin-top:10px;margin-bottom:0">Numbers on the Board</h2>
+
+        <div class="season-totals">
+          <div class="total-tile" data-desc="Total JIRA tickets tracked across the season — features, revamps, and bug fixes combined.">
+            <span class="label">Total Fixtures</span>
+            <span class="big" id="tr-total">—</span>
+            <span class="tt-arrow"></span>
+          </div>
+          <div class="total-tile" data-desc="Tickets fully shipped and closed — merged, tested, and live in production.">
+            <span class="label">Goals (Done)</span>
+            <span class="big" id="tr-wins">—</span>
+            <span class="tt-arrow"></span>
+          </div>
+          <div class="total-tile" data-desc="Percentage of tickets completed out of all tracked — measures delivery consistency across the half.">
+            <span class="label">Win Rate</span>
+            <span class="big" id="tr-rate">—</span>
+            <span class="tt-arrow"></span>
+          </div>
+          <div class="total-tile" data-desc="AI initiatives shipped or meaningfully progressed this half — CleverTap, Gitprint, Pre-commit validation, Stitch + Claude, and one honest failure kept as a lesson.">
+            <span class="label">European Nights</span>
+            <span class="big">5</span>
+            <span class="tt-arrow"></span>
+          </div>
+        </div>
+
+        <hr class="crest-divider" aria-hidden="true">
+        <div class="crest-divider" aria-hidden="true">
+          <span class="line"></span>
+          <img src="assets/img/fcb-crest.png" alt=""/>
+          <span class="line"></span>
+        </div>
+
+        <!-- Competition summary cards -->
+        <div class="three-comp-head">
+          <h2 style="margin:0">Three Competitions</h2>
+          <span class="meta">Season Summary · 2025/26</span>
+        </div>
+
+        <div class="comp-card liga">
+          <div class="comp-badge liga">La<br/>Liga</div>
+          <div class="comp-card-body">
+            <div class="comp-card-head">
+              <h3>Feature Delivery</h3>
+              <span class="weight">45%</span>
+            </div>
+            <p>40 fixtures across the half — 26 wins, 10 postponed, 4 in play. Sprint commitment maintained. Banker Directory landed on three platforms. Bonanza Contest replaced Udaan in the final week. Three major revamps shipped without regressions.</p>
+            <a class="comp-card-cta" href="feature-delivery.html">Full match report <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <div class="comp-card copa">
+          <div class="comp-badge copa">Copa<br/>Rey</div>
+          <div class="comp-card-body">
+            <div class="comp-card-head">
+              <h3>Quality, UX &amp; Production Ownership</h3>
+              <span class="weight">35%</span>
+            </div>
+            <p>Clean sheet on P1 defects. Sentry and Firebase watched weekly. WhatsApp bug channel triaged proactively. The Akshat XI: a 4-3-3 where ownership behaviours anchor the defence and shipped revamps drive the attack.</p>
+            <a class="comp-card-cta" href="quality-ux.html">Full match report <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <div class="comp-card ucl">
+          <div class="comp-badge ucl">UCL</div>
+          <div class="comp-card-body">
+            <div class="comp-card-head">
+              <h3>Growth, Code Quality &amp; AI Adoption</h3>
+              <span class="weight">20%</span>
+            </div>
+            <p>Five European nights: CleverTap analytics, Gitprint AI stats, pre-commit image validation, Stitch + Claude UI pipeline. One Roma '91 — the AI WhatsApp listener that did not ship, but taught the shape of the problem. The False 9 drops wherever needed.</p>
+            <a class="comp-card-cta" href="growth-ai.html">Full match report <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <blockquote class="pep-section-quote">
+          "The details separate the good from the great. What you do when you think no one is watching."
+          <cite>— Pep Guardiola</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Manager's full closer -->
+    <div class="pep-hero" aria-label="Manager's closing quote">
+      <!--
+        MANAGER PHOTO SWAP:
+        Replace assets/img/manager-placeholder.svg with the manager's photo.
+        Same filename = no HTML edits.
+      -->
+      <img src="assets/img/manager-placeholder.svg" alt="The Gaffer" class="manager-photo"/>
+      <span class="quote-marks" aria-hidden="true">&ldquo;</span>
+      <blockquote>
+        "The toughest opponent is the one who learns faster than you."
+        <cite>— The Gaffer</cite>
+      </blockquote>
+    </div>
+  </main>
+
+  <button class="music-toggle" id="music-toggle" aria-pressed="false" title="Toggle music" aria-label="Toggle background music">♪</button>
+  <audio id="anthem" src="assets/audio/trophy-room.wav" loop preload="none"></audio>
+
+  <footer class="site-foot" style="margin-top:0">
+    <div class="container">
+      <small>Akshat Joshi &nbsp;·&nbsp; akshat.joshi@ambak.com &nbsp;·&nbsp; Season 2025/26</small>
+      <a href="index.html" style="color:var(--gold);font-weight:700;font-size:.88rem">← Back to cover</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/tooltip.js"></script>
+  <script>
+    fetch('assets/data/tickets.json')
+      .then(r => r.json())
+      .then(data => {
+        const t = data.tickets;
+        const wins = t.filter(x => x.result === 'W').length;
+        const total = t.length;
+        const rate = Math.round(wins / total * 100);
+        document.getElementById('tr-total').textContent = total;
+        document.getElementById('tr-wins').textContent = wins;
+        document.getElementById('tr-rate').textContent = rate + '%';
+      });
+  </script>
+  <script src="assets/js/music.js"></script>
+</body>
+</html>

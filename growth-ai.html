@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Champions League — Growth &amp; AI | Akshat Joshi Season 2025/26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/styles/base.css"/>
+  <link rel="stylesheet" href="assets/styles/card.css"/>
+  <link rel="stylesheet" href="assets/styles/match-report.css"/>
+  <style>
+    /* UCL identity — purple-tinted gradient on match-header */
+    .ucl-header{
+      background:
+        radial-gradient(ellipse at 20% 20%,rgba(107,33,168,.45),transparent 55%),
+        radial-gradient(ellipse at 80% 80%,rgba(13,27,62,.5),transparent 55%),
+        linear-gradient(160deg,#201040 0%,#0d1b3e 60%,#1a0026 100%)!important;
+    }
+    .stars{
+      position:absolute;inset:0;overflow:hidden;pointer-events:none;
+    }
+    .stars::before{
+      content:"\2605 \2605 \2605 \2605 \2605 \2605 \2605 \2605";
+      position:absolute;top:16px;left:50%;transform:translateX(-50%);
+      font-size:.85rem;letter-spacing:.55em;color:rgba(255,203,5,.45);
+      white-space:nowrap;
+    }
+    .bracket-section{ padding:48px 0 }
+    .false9-grid{ display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px }
+    @media(max-width:640px){ .false9-grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="topbar" aria-label="Site navigation">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/img/fcb-crest.png" alt="Crest"/>
+        <span class="name">Akshat <span>Joshi</span></span>
+      </a>
+      <div class="topnav">
+        <a href="index.html">Cover</a>
+        <a href="feature-delivery.html">La Liga</a>
+        <a href="quality-ux.html">Copa del Rey</a>
+        <a href="growth-ai.html" aria-current="page">Champions League</a>
+        <a href="trophy-room.html">Trophy Room</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="match-header ucl-header" style="position:relative;overflow:hidden" aria-label="Match report header">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="container" style="position:relative;z-index:1">
+        <div class="match-header-text">
+          <span class="competition">UEFA Champions League — European Campaign Report</span>
+          <h1>Growth, Code Quality &amp; AI Adoption</h1>
+          <p class="rubric">Section 3 of 3 &nbsp;·&nbsp; Weight: <strong>20%</strong> &nbsp;·&nbsp; AI tool usage</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+          <div class="match-score" style="font-size:clamp(1.4rem,3vw,2rem);border-color:rgba(167,139,250,.5)">5 Ties<small>European Nights</small></div>
+          <div class="manager-badge">
+            <img src="assets/img/manager-placeholder.svg" alt="The Gaffer"/>
+            <div>
+              <div class="title">The Gaffer</div>
+              <div class="mname">Team Manager</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Intro -->
+    <section style="background:var(--paper-2);padding:40px 0;border-bottom:3px solid var(--ink)">
+      <div class="container">
+        <span class="kicker" style="background:#6b21a8">La Masia × Bernabéu</span>
+        <h2 style="margin-top:14px">Promoted from the Academy, Late</h2>
+        <p style="font-size:1.05rem;color:var(--ink-soft);line-height:1.7;max-width:680px">
+          I came to AI-assisted development later than I would have liked. But I made a conscious choice to close that gap quickly — treating every workflow as a testing ground, not just the obvious ones. Five European ties this half. Four wins. One loss kept as a lesson.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bracket -->
+    <section class="bracket-section" aria-labelledby="bracket-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker" style="background:#6b21a8">Tournament Bracket</span>
+          <h2 id="bracket-heading">European Nights</h2>
+        </div>
+        <!-- <p style="max-width:680px;color:var(--ink-soft);margin-bottom:28px">Reorder entries in <code>assets/data/q3-bracket.json</code> to re-rank. Each entry is a knockout tie — result, report, and tags.</p> -->
+
+        <div class="bracket" id="bracket-list" role="list" aria-label="Champions League bracket">
+          <p style="color:var(--ink-soft);font-style:italic">Loading bracket…</p>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider" style="margin:48px 0 32px"><span class="score-6-0">False 9 &amp; La Masia</span></div>
+
+        <!-- False 9 + La Masia -->
+        <div class="false9-grid">
+          <div class="false9-panel" id="false9-panel">
+            <p style="color:var(--ink-soft);font-style:italic">Loading…</p>
+          </div>
+          <div class="lamasia-panel" id="lamasia-panel">
+            <p style="color:var(--ink-soft);font-style:italic">Loading…</p>
+          </div>
+        </div>
+
+        <!-- Manager's closer quote -->
+        <blockquote class="pep" id="manager-closer" style="margin-top:44px">
+          <p style="color:var(--ink-soft);font-style:italic">Loading…</p>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <button class="music-toggle" id="music-toggle" aria-pressed="false" title="Toggle music" aria-label="Toggle background music">♪</button>
+  <audio id="anthem" src="assets/audio/champions-league.wav" loop preload="none"></audio>
+
+  <footer class="site-foot">
+    <div class="container">
+      <small>Akshat Joshi &nbsp;·&nbsp; akshat.joshi@ambak.com &nbsp;·&nbsp; Season 2025/26</small>
+      <div style="display:flex;gap:14px">
+        <a href="quality-ux.html" style="color:var(--gold);font-weight:700;font-size:.88rem">← Copa del Rey</a>
+        <a href="trophy-room.html" style="color:var(--gold);font-weight:700;font-size:.88rem">Trophy Room →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/bracket.js"></script>
+  <script src="assets/js/tooltip.js"></script>
+  <script src="assets/js/music.js"></script>
+</body>
+</html>

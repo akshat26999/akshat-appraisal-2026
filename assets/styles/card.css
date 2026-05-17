@@ -1,0 +1,210 @@
+/* FUT Player Card — EA Sports Gold style */
+.fut-scene{
+  perspective:1200px;
+  display:flex;justify-content:center;
+  padding:40px 20px;
+}
+.fut-card{
+  width:min(300px,88vw);
+  position:relative;
+  transition:transform .3s ease, box-shadow .3s ease;
+  cursor:pointer;
+}
+.fut-card:hover{transform:translateY(-8px) scale(1.02)}
+
+.fut-face{
+  background:
+    radial-gradient(ellipse at 50% 22%,rgba(255,248,190,.55) 0%,transparent 55%),
+    linear-gradient(165deg,#2c1a06 0%,#7a4d1a 14%,#c89030 28%,#f2d060 43%,#fdf0a0 50%,#e8c060 58%,#b07828 73%,#6b3e12 87%,#3a2008 100%);
+  border-radius:12px;
+  padding:0;
+  box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 0 2px rgba(255,235,120,.7),inset 0 0 0 5px rgba(180,120,30,.35);
+  overflow:hidden;
+  position:relative;
+}
+.fut-face::before{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 18%,rgba(255,252,210,.3) 0%,transparent 50%);
+  pointer-events:none;
+  z-index:1;
+}
+.fut-face::after{
+  content:"";
+  position:absolute;inset:4px;
+  border-radius:9px;
+  box-shadow:inset 0 0 0 1px rgba(255,230,100,.45);
+  pointer-events:none;
+  z-index:2;
+}
+
+/* Top section: left = OVR/position/flag/comp, right = crest */
+.fut-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:14px 16px 0;
+  position:relative;z-index:3;
+}
+.fut-top-left{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+}
+.fut-rating{
+  font-family:var(--serif);font-weight:900;font-size:2.8rem;line-height:1;
+  color:#1a0d00;text-shadow:0 1px 2px rgba(255,220,80,.4);
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+}
+.fut-rating .pos{font-size:.78rem;font-weight:900;letter-spacing:.1em;color:#3d2206;margin-top:2px}
+.fut-nation{display:flex;flex-direction:column;align-items:center;gap:3px;margin-top:2px}
+.fut-nation img{width:26px;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+.fut-nation .player-pos{display:none}
+.fut-comp-badge{
+  font-family:var(--sans);font-weight:900;font-size:.5rem;letter-spacing:.14em;
+  text-transform:uppercase;color:#3d2206;
+  background:rgba(80,40,0,.18);border-radius:2px;padding:1px 4px;margin-top:2px;
+}
+.fut-crest{display:flex;flex-direction:column;align-items:center}
+.fut-crest img{width:44px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.35))}
+
+/* Photo — no side margins, full width, taller */
+.fut-photo-wrap{
+  position:relative;
+  margin:8px 0 0;
+  overflow:hidden;
+}
+.fut-photo-wrap img{
+  width:100%;display:block;
+  object-fit:cover;
+  object-position:top center;
+  aspect-ratio:1/.95;
+}
+.fut-photo-wrap::after{
+  content:"";
+  position:absolute;bottom:0;left:0;right:0;height:35%;
+  background:linear-gradient(to bottom,transparent,rgba(140,80,10,.65));
+}
+
+/* Name */
+.fut-name{
+  text-align:center;
+  padding:10px 10px 6px;
+  font-family:var(--serif);font-weight:900;font-size:1.3rem;
+  color:#1a0d00;letter-spacing:.04em;text-transform:uppercase;
+  text-shadow:0 1px 0 rgba(255,230,100,.5);
+  position:relative;z-index:3;
+}
+
+/* Divider above stats */
+.fut-stats-divider{
+  height:1px;background:rgba(80,40,0,.3);margin:0 14px 0;
+}
+
+/* Stats — 3×2 grid (6 items) */
+.fut-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  margin:0 10px;
+  padding:8px 0 10px;
+  gap:0;
+  position:relative;z-index:3;
+  overflow:visible;
+}
+.fut-stat{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  padding:6px 4px;
+  position:relative;
+  cursor:help;
+  transition:background .15s;
+  border-right:1px solid rgba(80,40,0,.2);
+  overflow:visible;
+}
+.fut-stat:nth-child(3),.fut-stat:nth-child(6){border-right:0}
+.fut-stat:nth-child(4),.fut-stat:nth-child(5),.fut-stat:nth-child(6){
+  border-top:1px solid rgba(80,40,0,.2);
+}
+.fut-stat:hover{background:rgba(255,220,80,.18)}
+.fut-stat .sv{
+  font-family:var(--serif);font-weight:900;font-size:1.35rem;color:#1a0d00;
+  line-height:1;
+}
+.fut-stat .sk{
+  font-family:var(--sans);font-weight:800;font-size:.54rem;letter-spacing:.14em;
+  text-transform:uppercase;color:#5a3010;
+}
+
+/* Stat tooltip — data only, rendered via JS global tooltip in index.html */
+.fut-stat-tip{ display:none!important }
+
+/* Bottom badges row: flag | competition | crest */
+.fut-bottom{
+  display:flex;justify-content:center;align-items:center;gap:14px;
+  padding:8px 14px 14px;
+  position:relative;z-index:3;
+}
+.fut-bottom-flag{display:flex;flex-direction:column;align-items:center}
+.fut-bottom-badge{
+  font-family:var(--sans);font-weight:900;font-size:.52rem;letter-spacing:.12em;
+  text-transform:uppercase;color:#1a0d00;
+  background:rgba(80,40,0,.15);border:1px solid rgba(80,40,0,.2);
+  border-radius:3px;padding:3px 7px;
+}
+.fut-bottom-crest img{width:32px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.3))}
+
+/* 3 nav cards under FUT hero */
+.report-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  max-width:980px;
+  margin:48px auto 0;
+  padding:0 24px;
+}
+.report-card{
+  position:relative;overflow:hidden;
+  border-radius:8px;
+  padding:28px 22px 22px;
+  text-decoration:none;
+  display:block;
+  color:#fff;
+  border-bottom:0;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 8px 28px rgba(0,0,0,.3);
+}
+.report-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.45)}
+.report-card.liga{background:linear-gradient(145deg,var(--blau-deep),var(--blau))}
+.report-card.copa{background:linear-gradient(145deg,var(--green-deep),var(--green))}
+.report-card.ucl{background:linear-gradient(145deg,#201040,#6b21a8)}
+.report-card-kicker{
+  font-size:.7rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;
+}
+.report-card-title{
+  font-family:var(--serif);font-weight:900;font-size:1.5rem;color:#fff;
+  line-height:1.1;margin-bottom:8px;
+}
+.report-card-sub{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.4}
+.report-card-arrow{
+  position:absolute;right:18px;bottom:18px;
+  font-size:1.5rem;color:var(--gold);
+  font-family:var(--serif);font-weight:900;
+}
+.report-card-weight{
+  position:absolute;top:14px;right:14px;
+  font-family:var(--serif);font-weight:900;font-size:2rem;
+  color:rgba(255,255,255,.12);line-height:1;
+}
+
+/* Manager badge (header, shared across match reports) */
+.manager-badge{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 18px;
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,203,5,.3);
+  border-radius:6px;
+  max-width:380px;
+  backdrop-filter:blur(6px);
+}
+.manager-badge img{
+  width:60px;height:60px;
+  border-radius:999px;object-fit:cover;
+  border:2px solid var(--gold);
+}
+.manager-badge .title{font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.manager-badge .mname{font-family:var(--serif);font-weight:800;font-size:1.05rem;color:#fff}

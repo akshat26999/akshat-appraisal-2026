@@ -1,0 +1,144 @@
+/* Tactical Pitch — Q2 */
+.pitch-wrap{
+  background:var(--green-deep);
+  border-radius:12px;
+  padding:28px 20px;
+  box-shadow:var(--shadow-deep);
+  margin:32px 0;
+  position:relative;
+}
+.pitch-label{
+  text-align:center;font-family:var(--serif);font-weight:800;
+  font-size:1rem;color:rgba(255,255,255,.55);
+  letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+.pitch-field{
+  background:var(--green);
+  border:3px solid rgba(255,255,255,.5);
+  border-radius:6px;
+  padding:32px 20px;
+  position:relative;
+  min-height:460px;
+  display:flex;flex-direction:column;
+  justify-content:space-between;
+}
+.pitch-field::before{
+  content:"";
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:90px;height:90px;
+  border:2px solid rgba(255,255,255,.3);
+  border-radius:999px;
+  pointer-events:none;
+}
+.pitch-field::after{
+  content:"";
+  position:absolute;top:50%;left:10px;right:10px;
+  border-top:2px solid rgba(255,255,255,.3);
+  pointer-events:none;
+}
+
+.penalty-top,.penalty-bot{
+  position:absolute;left:50%;
+  border:2px solid rgba(255,255,255,.3);
+  width:140px;height:46px;
+}
+.penalty-top{top:0;transform:translateX(-50%);border-top:0;border-radius:0 0 50% 50%}
+.penalty-bot{bottom:0;transform:translateX(-50%);border-bottom:0;border-radius:50% 50% 0 0}
+
+.pitch-row{
+  display:flex;justify-content:space-around;align-items:center;
+  gap:8px;
+  position:relative;z-index:1;
+  padding:0 4%;
+}
+
+/* Player */
+.player{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  cursor:pointer;position:relative;
+  flex:1;max-width:140px;
+}
+.player-dot{
+  width:64px;height:64px;border-radius:999px;
+  background:linear-gradient(160deg,var(--blau) 0%,var(--blau-deep) 100%);
+  display:grid;place-items:center;
+  border:3px solid var(--gold);
+  box-shadow:0 4px 14px rgba(0,0,0,.5);
+  transition:transform .15s,box-shadow .15s;
+}
+.player:hover .player-dot,.player:focus .player-dot{
+  transform:scale(1.12);box-shadow:0 8px 22px rgba(0,0,0,.6);
+}
+.player-dot .pnum{
+  font-family:var(--num);font-weight:900;font-size:1.5rem;
+  color:#fff;letter-spacing:0;line-height:1;
+  text-shadow:0 1px 2px rgba(0,0,0,.5);
+}
+.player-pos{
+  font-family:var(--num);font-weight:900;font-size:.6rem;letter-spacing:.1em;
+  color:var(--gold);text-transform:uppercase;
+}
+.player-label{
+  font-family:var(--sans);font-weight:800;font-size:.72rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:#fff;text-align:center;
+  background:rgba(0,0,0,.55);padding:3px 8px;border-radius:3px;
+  white-space:nowrap;
+}
+
+/* Floating tooltip (appended to <body> — escapes pitch overflow / stacking contexts) */
+#player-floating-tip{
+  position:fixed;
+  background:var(--ink);color:#fff;
+  border:1px solid var(--gold);border-radius:8px;
+  padding:14px 16px;
+  width:280px;max-width:calc(100vw - 24px);
+  font-size:.85rem;line-height:1.5;
+  box-shadow:0 12px 36px rgba(0,0,0,.55);
+  pointer-events:none;opacity:0;
+  transform:translateX(-50%);
+  transition:opacity .12s;
+  z-index:99999;
+}
+#player-floating-tip.visible{opacity:1}
+#player-floating-tip .ftip-head{
+  display:flex;align-items:baseline;gap:8px;margin-bottom:6px;
+  border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:8px;
+}
+#player-floating-tip .ftip-num{
+  font-family:var(--num);font-weight:900;font-size:1.4rem;color:var(--gold);line-height:1;
+}
+#player-floating-tip .ftip-name{
+  font-family:var(--serif);font-weight:800;font-size:1.05rem;color:#fff;
+  flex:1;
+}
+#player-floating-tip .ftip-pos{
+  font-family:var(--num);font-weight:700;font-size:.68rem;
+  letter-spacing:.12em;color:var(--gold);
+  background:rgba(255,203,5,.12);padding:2px 6px;border-radius:3px;
+}
+#player-floating-tip .ftip-initiative{
+  font-weight:700;color:#fff;margin-bottom:6px;font-size:.88rem;
+}
+#player-floating-tip .ftip-body{
+  color:rgba(255,255,255,.82);font-size:.82rem;
+}
+#player-floating-tip .ftip-tickets{
+  font-family:var(--num);font-size:.7rem;color:rgba(255,255,255,.6);
+  margin-top:8px;border-top:1px solid rgba(255,255,255,.12);padding-top:6px;
+}
+
+@media(max-width:640px){
+  .pitch-field{min-height:560px;padding:18px 8px}
+  .player-dot{width:52px;height:52px;border-width:2px}
+  .player-dot .pnum{font-size:1.2rem}
+  .player-label{font-size:.62rem}
+  #player-floating-tip{width:240px;font-size:.78rem}
+}
+@media print{
+  .pitch-wrap{background:#1a4a28;-webkit-print-color-adjust:exact}
+  #player-floating-tip{display:none!important}
+}

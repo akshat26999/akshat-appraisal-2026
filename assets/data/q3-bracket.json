@@ -1,0 +1,56 @@
+{
+  "_comment": "Array order = bracket order (R16 → Final → Roma'91). Reorder to re-rank.",
+  "bracket": [
+    {
+      "round": "Round of 16",
+      "fixture": "CleverTap Skill in Claude",
+      "scoreline": "WON",
+      "report": "Used the CleverTap skill inside Claude to debug a production analytics issue without hand-querying dashboards. Time-to-answer collapsed from hours to minutes.",
+      "tags": ["Claude", "CleverTap", "Debugging"]
+    },
+    {
+      "round": "Quarter-Final",
+      "fixture": "Gitprint + AI Stats Portal",
+      "scoreline": "1ST LEG, 2ND LEG PENDING",
+      "report": "Enhanced Gitprint and started an AI stats portal to visualise team-wide AI adoption. Working through the return leg.",
+      "tags": ["Gitprint", "Internal tooling", "Adoption metrics"]
+    },
+    {
+      "round": "Semi-Final",
+      "fixture": "Pre-commit Image Validation + Asset Review Platform",
+      "scoreline": "WON",
+      "report": "AI-assisted build of a pre-commit hook that flags duplicate images plus an internal platform to upload, review, and surface visually similar assets already in the repo.",
+      "tags": ["Codebase hygiene", "AI-assisted build"]
+    },
+    {
+      "round": "Final",
+      "fixture": "Stitch + Claude UI Pipeline",
+      "scoreline": "WON",
+      "report": "Adopted Stitch with Claude for UI design, fine-tuning, and screen re-imagining. Closed the gap between design intent and implementation.",
+      "tags": ["Stitch", "Claude", "UI design"]
+    },
+    {
+      "round": "The Roma '91 Match",
+      "fixture": "AI-Powered WhatsApp Bug Listener",
+      "scoreline": "LOST — LESSON KEPT",
+      "report": "Attempted to auto-categorise field bug reports (app crashes, network, ops, knowledge gaps). Did not move forward — cost and accuracy did not justify the resources. The shape of the problem is now better understood.",
+      "tags": ["Applied AI", "Cost / accuracy tradeoffs", "Honest failure"]
+    }
+  ],
+  "false9": {
+    "title": "The False 9",
+    "lines": [
+      "No fixed position. Drops between code, design, debugging, and analytics depending on what the team needs.",
+      "Tools rotated through this half: Claude, Cursor, Stitch, CleverTap skill, Claude Code skills."
+    ]
+  },
+  "laMasia": {
+    "title": "La Masia Notes",
+    "lines": [
+      "Joined the AI academy late. Closing the gap by treating every workflow as a chance to test a tool.",
+      "Half-year learning goal: ship one prompt or skill contribution per quarter that the team actively uses.",
+      "Honest read: still scratching the surface. The space moves weekly; the routine is to keep adapting."
+    ]
+  },
+  "managerQuote": "The toughest opponent is the one who learns faster than you. — The Gaffer"
+}

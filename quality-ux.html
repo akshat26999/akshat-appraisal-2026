@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Copa del Rey — Quality &amp; Ownership | Akshat Joshi Season 2025/26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/styles/base.css"/>
+  <link rel="stylesheet" href="assets/styles/card.css"/>
+  <link rel="stylesheet" href="assets/styles/match-report.css"/>
+  <link rel="stylesheet" href="assets/styles/pitch.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="topbar" aria-label="Site navigation">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/img/fcb-crest.png" alt="Crest"/>
+        <span class="name">Akshat <span>Joshi</span></span>
+      </a>
+      <div class="topnav">
+        <a href="index.html">Cover</a>
+        <a href="feature-delivery.html">La Liga</a>
+        <a href="quality-ux.html" aria-current="page">Copa del Rey</a>
+        <a href="growth-ai.html">Champions League</a>
+        <a href="trophy-room.html">Trophy Room</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="match-header" aria-label="Match report header">
+      <div class="container">
+        <div class="match-header-text">
+          <span class="competition">Copa del Rey — Tactical Season Report</span>
+          <h1>Quality, UX &amp; Production Ownership</h1>
+          <p class="rubric">Section 2 of 3 &nbsp;·&nbsp; Weight: <strong>35%</strong> &nbsp;· Integration tests on non-trivial PRs · On-call responsiveness · RCA ownership</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+          <div class="match-score" style="font-size:clamp(1.4rem,3vw,2.2rem)">Clean Sheet<small>Season</small></div>
+          <div class="manager-badge">
+            <img src="assets/img/manager-placeholder.svg" alt="The Gaffer"/>
+            <div>
+              <div class="title">The Gaffer</div>
+              <div class="mname">Team Manager</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="manager-report-heading">
+      <div class="container">
+
+        <!-- Manager's Match Report -->
+        <div class="section-head">
+          <span class="kicker green">Tactical Analysis</span>
+          <h2 id="manager-report-heading">The Match Report</h2>
+        </div>
+
+        <div class="manager-report" id="manager-report">
+          <!-- populated by lineup.js -->
+          <p style="color:var(--ink-soft);font-style:italic">Loading…</p>
+        </div>
+
+        <div class="divider"><span class="score-6-0">4-3-3 Formation</span></div>
+
+        <!-- Tactical Pitch -->
+        <div class="section-head">
+          <span class="kicker green">Starting XI</span>
+          <h2>The Akshat XI</h2>
+        </div>
+        <!-- <p style="max-width:680px;color:var(--ink-soft);margin-bottom:8px">Hover / tap a position to see the role, the contribution, and linked tickets. Formation data lives in <code>assets/data/q2-lineup.json</code> — reorder to re-rank.</p> -->
+
+        <div class="pitch-wrap" role="region" aria-label="Tactical lineup">
+          <div class="pitch-label">Copa del Rey · Starting Formation</div>
+          <div class="pitch-field" id="pitch-field">
+            <div class="penalty-top" aria-hidden="true"></div>
+            <div id="pitch-rows">
+              <!-- built by lineup.js -->
+              <p style="color:rgba(255,255,255,.5);text-align:center;font-style:italic">Loading lineup…</p>
+            </div>
+            <div class="penalty-bot" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Player Profiles -->
+        <div class="divider"><span class="score-6-0">Player Profiles</span></div>
+        <div class="section-head">
+          <span class="kicker gold">The Squad</span>
+          <h2>Match-Day Programme</h2>
+        </div>
+        <p style="max-width:680px;color:var(--ink-soft);margin-bottom:24px">Every player in the matchday squad — what they do, where they play, and the work that earned them the shirt.</p>
+        <div class="trophy-grid" id="trophy-grid">
+          <p style="color:var(--ink-soft);font-style:italic">Loading…</p>
+        </div>
+
+        <blockquote class="pep" style="margin-top:40px">
+          "Football is not about scoring. It is about controlling space and time."
+          <cite>— Pep Guardiola</cite>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <button class="music-toggle" id="music-toggle" aria-pressed="false" title="Toggle music" aria-label="Toggle background music">♪</button>
+  <audio id="anthem" src="assets/audio/copa.wav" loop preload="none"></audio>
+
+  <footer class="site-foot">
+    <div class="container">
+      <small>Akshat Joshi &nbsp;·&nbsp; akshat.joshi@ambak.com &nbsp;·&nbsp; Season 2025/26</small>
+      <div style="display:flex;gap:14px">
+        <a href="feature-delivery.html" style="color:var(--gold);font-weight:700;font-size:.88rem">← La Liga</a>
+        <a href="growth-ai.html" style="color:var(--gold);font-weight:700;font-size:.88rem">Champions League →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/lineup.js"></script>
+  <script src="assets/js/tooltip.js"></script>
+  <script src="assets/js/music.js"></script>
+</body>
+</html>
