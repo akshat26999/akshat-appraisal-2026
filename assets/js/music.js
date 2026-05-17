@@ -12,7 +12,7 @@
   const MUTED_KEY = 'music-muted';
   const ICON_ON   = '♪';
   const ICON_OFF  = '🔇';
-  const DELAY_MS  = 500;
+  const DELAY_MS  = 200;
 
   let userWantsMuted = localStorage.getItem(MUTED_KEY) === '1';
 
